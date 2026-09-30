@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} | AI Learning Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <div class="brand-mark">E</div>
+            <div>
+                <p class="eyebrow">AI-POWERED LEARNING</p>
+                <h1>{{ app_name }} <span>🧠</span></h1>
+                <p class="subtitle">Ask, understand, practice, summarize, and build your learning path.</p>
+            </div>
+        </header>
+
+        <section class="card">
+            <label for="task">Choose a learning task</label>
+            <select id="task">
+                <option value="qa">Ask a Question</option>
+                <option value="explain">Explain a Topic</option>
+                <option value="quiz">Generate a Quiz</option>
+                <option value="summarize">Summarize Text</option>
+                <option value="learn">Learning Recommendations</option>
+            </select>
+
+            <label for="inputText" id="inputLabel">Question</label>
+            <textarea id="inputText" rows="7" placeholder="Example: Which is the largest ocean?"></textarea>
+
+            <div class="actions">
+                <button id="submitBtn">Get Answer</button>
+                <button id="clearBtn" class="secondary">Clear</button>
+            </div>
+
+            <p id="status" class="status" aria-live="polite"></p>
+        </section>
+
+        <section id="resultCard" class="card result-card hidden">
+            <div class="result-heading">
+                <h2 id="resultTitle">Result</h2>
+                <button id="copyBtn" class="icon-button" title="Copy result">Copy</button>
+            </div>
+            <div id="result"></div>
+        </section>
+
+        <footer>
+            <span>EduGenie</span>
+            <span>FastAPI + Google Gemini</span>
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
